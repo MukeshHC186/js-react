@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>java script</title>
+</head>
+<body>
+    <div id="main_container">
+
+    </div>
+</body>
+<script>
+    let obj = {
+      personal: {
+        name: "John",
+        age: 22,
+        gender: "",
+        religion: "",
+      },
+      education: ["B. Tech, M. Tech"],
+      geological: {
+        place: "NY",
+        county: "NJ",
+        country: "USA",
+        nationality: "",
+        citizenship: null,
+      },
+      hobbies: {
+        reading: true,
+        gaming: false,
+        sport: "football",
+      },
+      class: ["JavaScript", "HTML", "CSS"],
+      friends:{}
+    };
+
+    Object.keys(obj).forEach(ele=>{
+        const val=obj[ele]
+        console.log(val);
+        if(!!val){
+            if(Array.isArray(val)){
+                val.forEach(ele=>{
+                    console.log(ele);
+                })
+            }else if(typeof val==="object"){
+                Object.keys(val).forEach(subele=>{
+                    console.log(val[subele])
+                })
+            }else{
+                // console.log(val);
+                personalinfo.appendChild(createField(ele, val))
+            }
+        }
+        
+    })
+   const main_container=document.getElementById("main_container")
+   const personalinfo=document.createElement("div")
+   personalinfo.setAttribute('id','personalinfo')
+   personalinfo.setAttribute('class','section')
+   personalinfo.innerHTML='<h3 class="section-title">Personal Information:-</h3>'
+
+//    personalinfo.id="personalinfo"
+   main_container.append(personalinfo)
+//    const h3=document.createElement("h3")
+//    h3.innerText="Personal Information:-"
+//    personalinfo.append(h3)
+   
+   
+ 
+    
+</script>
+</html>
