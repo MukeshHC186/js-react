@@ -1,0 +1,25 @@
+.main_container{
+  width: 100%;
+  height: 90vh;
+  border: 1px solid red;
+}
+nav{
+    border: 1px solid black;
+    background-color: #333;
+    height: 15vh;
+    color: white;
+}
+aside{
+    border: 1px solid black;
+    height: 60vh;
+}
+.main{
+    border: 1px solid black;
+    height: 60vh;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+}
+footer{
+    border: 1px solid black;
+    height: 15vh;
+}

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <img src="https://media-bom1-2.cdn.whatsapp.net/v/t61.24694-24/420474561_1440305299910829_7198873562190225004_n.jpg?ccb=11-4&oh=01_Q5AaIM847LW_OhTovjHY34gTKThWct8E-4fC-tvsSh28ecJv&oe=66CBD59F&_nc_sid=5e03e0&_nc_cat=110" alt="">
+    <h1>Persnol Portfolio</h1>
+    <div id="main_container">
+
+    </div>
+</body>
+<script>
+    let obj = {
+      personal: {
+        name: "John",
+        age: 22,
+        gender: "",
+        religion: "",
+      },
+      education: ["B. Tech, M. Tech"],
+      geological: {
+        place: "NY",
+        county: "NJ",
+        country: "USA",
+        nationality: "",
+        citizenship: null,
+      },
+      hobbies: {
+        reading: true,
+        gaming: false,
+        sport: "football",
+      },
+      class: ["JavaScript", "HTML", "CSS"],
+      friends:{},
+      family:"hgkdjfgkjfdgokfhgujfhgf"
+    };
+    const main_container=document.getElementById("main_container")
+    const main_arr=Object.keys(obj)
+    // console.log(main_arr);
+    main_arr.forEach(ele=>{
+        const value=obj[ele]
+        if(!!value&&!!Object.keys(value).length){
+            const root=document.createElement("div");
+            root.className="root";
+            root.id=ele
+            main_container.appendChild(root)           
+        }
+    })
+    main_arr.forEach(ele=>{
+        const root=document.getElementById(ele)
+        const value=obj[ele]
+        const details_div=document.createElement("div")
+        details_div.className="details_div"
+        details_div.id=ele
+        if(!!value&&!!Object.keys(value).length){
+            const title=document.createElement("h2");
+            title.textContent=ele;
+            details_div.append(title)
+            root.append(details_div)
+            if(Array.isArray(value)){
+                value.forEach(item=>{
+                    const ul=document.createElement("ul")
+                    let li=document.createElement("li")
+                    li.textContent=item
+                    ul.appendChild(li)
+                    details_div.append(ul)
+                })
+            }else if(typeof value==="object"){
+              Object.keys(value).forEach(key=>{
+                const div=document.createElement("div")
+                div.id=key
+                const label=document.createElement("label")
+                label.textContent=key+' :'
+                const span=document.createElement("span")
+                span.textContent=!!value[key]?value[key]:' -'
+                div.append(label,span)
+                details_div.append(div)
+              })  
+            }else{
+                const other=document.createElement("P")
+                other.textContent=value
+                details_div.append(other)
+            }
+        }
+        
+    })
+    
+</script>
+</html>
